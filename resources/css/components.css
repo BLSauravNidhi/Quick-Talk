@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.tab-bar {
+    @apply h-full px-5 py-2.5 rounded-full text-xs whitespace-nowrap;
+}
+
+.messages-list-item {
+    @apply w-full h-fit text-black grid grid-cols-[70px_auto_100px] py-2.5 pl-2 pr-5;
+}
