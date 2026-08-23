@@ -1,7 +1,9 @@
 <?php
 
+use App\Events\MessageSendEvent;
 use App\Models\Message;
 use App\Models\User;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 new class extends Component
@@ -38,9 +40,12 @@ new class extends Component
         foreach ($chats as $message) {
             $this->appendChatMessage($message);
         }
+    }
 
-
-        // dd($this->chats);
+    #[On('echo-private:chat-channel.{sender_id},MessageSendEvent')]
+    public function listenToTheMessage($event){
+        $chatMessage = Message::whereId($event['message']['id'])->first();
+        $this->appendChatMessage($chatMessage);
     }
 
     protected function appendChatMessage($message){
@@ -59,6 +64,9 @@ new class extends Component
         $chatMessage->reciever_id = $this->reciever_id;
         $chatMessage->message = $this->message;
         $chatMessage->save();
+
+        $this->appendChatMessage($chatMessage);
+        broadcast(new MessageSendEvent($chatMessage))->toOthers();
 
         $this->message = '';
     }

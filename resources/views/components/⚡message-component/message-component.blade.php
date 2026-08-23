@@ -1,6 +1,6 @@
 
 <div>
-    <div class=" relative mx-auto w-screen h-screen bg-primary overflow-hidden text-white fill-white">
+    <div class=" relative mx-auto w-screen h-screen bg-primary overflow-x-hidden overflow-y-scroll text-white fill-white" id="chats">
         <header class=" fixed bg-primary top-0 left-0 w-full h-13 flex gap-3 px-3 items-center pt-2">
                 <a href="{{ route('chat.index')}}"  class=" text-sm poppins">
                     <svg height="20px" viewBox="0 -960 960 960" width="20px">
@@ -42,14 +42,16 @@
                 @endif
                 
                 {{-- Messages --}}
-                <div class=" {{ $message['sender_id'] === auth()->user()->id ? 'ml-auto' : 'mr-auto'}} flex flex-nowrap items-end justify-between gap-3">
-                    <p class=" bg-primary-light rounded-tr-3xl rounded-b-3xl py-2 px-3">{{ $message['message']}}</p> 
+                <div class=" {{ $message['sender_id'] === auth()->user()->id ? 'ml-auto' : 'mr-auto'}} flex flex-nowrap items-end justify-between gap-1.5 bg-primary-light rounded-tr-3xl rounded-b-3xl py-2 px-3">
+                    <p class=" ">{{ $message['message']}}</p> 
                     <span class=" text-[9px]">{{ $message['created_at']->format('g:i a')}}</span>
                 </div>
             @endforeach
         </div>
 
-        <form wire:submit.prevent="send" class=" fixed bottom-0 left-0 w-full h-15 grid grid-cols-[auto_40px] items-center gap-4 px-4 pb-3">
+        <div class=" min-w-full min-h-13"></div>
+
+        <form wire:submit.prevent="send" class=" bg-inherit fixed bottom-0 left-0 w-full h-15 grid grid-cols-[auto_40px] items-center gap-4 px-4 py-3">
             <div class="w-full relative">
                 <input wire:model="message" type="text" name="" placeholder="Message" spellcheck="false" class=" w-full bg-white text-primary-dark px-5 py-2 rounded-full poppins text-sm font-medium focus:outline-none">
                 <svg width="21px" height="21px" viewBox="0 0 24 24" fill="none" class=" absolute top-2 right-3">
