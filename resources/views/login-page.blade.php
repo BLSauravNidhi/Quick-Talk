@@ -18,7 +18,7 @@
 
             <form id="login" action="{{ route('auth')}}" method="post" class=" flex flex-col flex-nowrap gap-3">
                 @csrf
-                <input type="text" name="username" placeholder="Username" autocomplete="username" class=" text-sm px-6 py-3 my-shadow inter w-full focus:outline-none">
+                <input type="email" name="email" placeholder="Email" autocomplete="email" class=" text-sm px-6 py-3 my-shadow inter w-full focus:outline-none">
                 <input type="password" name="password" placeholder="Password" autocomplete="current-password" class=" password text-sm px-6 py-3 my-shadow inter w-full focus:outline-none">
 
                 @error('login')
