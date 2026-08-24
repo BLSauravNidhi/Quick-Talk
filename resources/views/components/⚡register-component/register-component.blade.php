@@ -1,6 +1,6 @@
 
 <div>
-    <div class="forms-container min-w-100 w-full h-fit pb-15 my-shadow rounded-2xl p-10">
+    <div class="forms-container min-w-80 w-full h-fit pb-15 my-shadow rounded-2xl p-10">
         <div class="w-full h-fit flex items-center justify-center flex-nowrap mb-10">
             <h1 class=" poppins font-bold text-2xl text-primary text-center">Register</h1>
         </div>
