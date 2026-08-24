@@ -16,7 +16,7 @@ class AccountController extends Controller
         if(Auth::attempt($credentials)){
             return redirect()->route('chat.index');
         } else {
-            return redirect()->route('login');
+            return back()->withErrors(['login' => 'Wrong credentials, Can\'t login.']);
         }
     }
 

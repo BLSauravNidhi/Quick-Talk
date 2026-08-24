@@ -20,6 +20,10 @@
                 @csrf
                 <input type="text" name="username" placeholder="Username" autocomplete="username" class=" text-sm px-6 py-3 my-shadow inter w-full focus:outline-none">
                 <input type="password" name="password" placeholder="Password" autocomplete="current-password" class=" password text-sm px-6 py-3 my-shadow inter w-full focus:outline-none">
+
+                @error('login')
+                    <p class=" text-red-500 poppins font-semibold text-xs px-2">{{ $message }}</p>
+                @enderror
                 {{-- Show Password and Forget Password --}}
                 <div class="w-full h-fit flex flex-nowrap gap-3 items-center justify-between mt-4 px-1">
                     <div class="w-fit h-fit flex flex-nowrap gap-2.5 items-center">
