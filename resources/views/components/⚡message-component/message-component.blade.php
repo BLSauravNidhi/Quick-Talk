@@ -42,9 +42,9 @@
                 @endif
                 
                 {{-- Messages --}}
-                <div class=" {{ $message['sender_id'] === auth()->user()->id ? 'ml-auto' : 'mr-auto'}} flex flex-nowrap items-end justify-between gap-1.5 bg-primary-light rounded-tr-3xl rounded-b-3xl py-2 px-3">
-                    <p class=" ">{{ $message['message']}}</p> 
-                    <span class=" text-[9px]">{{ $message['created_at']->format('g:i a')}}</span>
+                <div class=" {{ $message['sender_id'] === auth()->user()->id ? 'ml-auto' : 'mr-auto'}} flex flex-nowrap items-end justify-between gap-1.5 max-w-70 bg-primary-light rounded-tr-3xl rounded-b-3xl py-2 px-3">
+                    <p>{{ $message['message']}}</p> 
+                    <span class=" whitespace-nowrap text-[9px]">{{ $message['created_at']->format('g:i a')}}</span>
                 </div>
             @endforeach
         </div>
