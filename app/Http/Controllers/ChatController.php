@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Friendship;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
@@ -13,9 +13,16 @@ class ChatController extends Controller
      */
     public function index()
     {
-        // Get Friends
-        $friends = User::select([ 'id', 'username', 'profile'])
-            ->where('username', '!=', Auth::user()->username)
+        $userId = auth()->id();
+
+        // Fetch friends in a single database query using an OR condition
+        $friends = User::whereHas('receivedFriends', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->orWhereHas('sentFriends', function ($query) use ($userId) {
+                $query->where('friend_id', $userId);
+            })
+            ->select('id', 'username', 'profile')
             ->get();
 
         return view('dashboard', ['friends'=> $friends]);

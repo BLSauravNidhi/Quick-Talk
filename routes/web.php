@@ -11,6 +11,8 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::resource('chat', ChatController::class);
 
     Route::get('/settings', [AccountController::class, 'settings'])->name('settings-page');
+    Route::get('/world', [PageController::class, 'world'])->name('world');
+    Route::get('/notifications', [PageController::class, 'notifications'])->name('notification-page');
 });
 
 Route::get('/', [PageController::class , 'login'])->name('login');
