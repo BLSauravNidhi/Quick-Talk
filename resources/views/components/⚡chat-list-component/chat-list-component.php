@@ -19,6 +19,7 @@ new class extends Component
         ->orWhere(function ($query) use ($friend) {
             $query->where('sender_id', $friend->id)->where('reciever_id', Auth::user()->id);
         })
+        ->latest()
         ->first();
 
         $this->last_message = $chat ? $chat->message : 'No messages yet';
