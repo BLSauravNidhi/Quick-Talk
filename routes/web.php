@@ -13,6 +13,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('/settings', [AccountController::class, 'settings'])->name('settings-page');
     Route::get('/world', [PageController::class, 'world'])->name('world');
     Route::get('/notifications', [PageController::class, 'notifications'])->name('notification-page');
+    Route::get('/my-profile', [AccountController::class, 'editProfile'])->name('edit-profile');
 });
 
 Route::get('/', [PageController::class , 'login'])->name('login');

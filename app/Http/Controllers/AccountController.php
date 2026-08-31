@@ -28,4 +28,8 @@ class AccountController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function editProfile(){
+        return view('edit-profile');
+    }
 }

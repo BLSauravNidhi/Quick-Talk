@@ -19,7 +19,7 @@
             <h2 class="text-lg font-semibold poppins">User Settings</h2>
         </div>
         <div class="links grid p-6 font-medium text-gray-700">
-            <a href="" class=" text-sm poppins px-3 py-2 hover:bg-white">Manage Account</a>
+            <a href="{{ route('edit-profile')}}" class=" text-sm poppins px-3 py-2 hover:bg-white">Manage Account</a>
             <a href="" class=" text-sm poppins px-3 py-2 hover:bg-white">Privacy settings</a>
             <a href="" class=" text-sm poppins px-3 py-2 hover:bg-white">Appearence</a>
             <a href="{{ route('logout')}}" class=" text-sm poppins px-3 py-2 hover:bg-white">Logout</a>
