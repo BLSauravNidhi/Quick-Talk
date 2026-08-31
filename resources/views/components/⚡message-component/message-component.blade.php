@@ -8,7 +8,7 @@
                     </svg>
                 </a>
                 <a href="" class=" flex flex-nowrap items-center gap-2">
-                    <img src="{{ $recieverInfo->profile && file_exists(public_path('storage/'. $recieverInfo->profile)) ?  asset('storage/'. $recieverInfo->profile) : ($recieverInfo->profile ? $recieverInfo->profile : asset('images/anonymous_user.webp'))}}" alt="dp" class=" bg-white rounded-full w-10 h-10 mx-auto object-cover">
+                    <img src="{{ $recieverInfo->profile && file_exists(public_path('storage/'. $recieverInfo->profile)) ?  asset('storage/'. $recieverInfo->profile) : ($recieverInfo->profile ? $recieverInfo->profile : asset('images/anonymous_user.webp'))}}" alt="dp" class=" bg-white rounded-full w-10 h-10 mx-auto object-cover" referrerpolicy="no-referrer">
                     <div class="poppins">
                         <h2 class="text-sm font-medium">{{ $recieverInfo->username}}</h2>
                         <p class=" text-xs">online</p>

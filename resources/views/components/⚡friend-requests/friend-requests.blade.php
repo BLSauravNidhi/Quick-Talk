@@ -1,7 +1,7 @@
 
 <div class="w-full">
     <a href="" class=" w-full h-fit flex items-center gap-3 py-3 px-3 overflow-hidden bg-gray-300">
-        <img src="{{ $request->senderInfo->profile ? $request->senderInfo->profile : asset('images/anonymous_user.webp') }}" alt="Profile" class=" rounded-full w-15 h-15 object-cover">
+        <img src="{{ $request->senderInfo->profile ? $request->senderInfo->profile : asset('images/anonymous_user.webp') }}" alt="Profile" class=" rounded-full w-15 h-15 object-cover" referrerpolicy="no-referrer">
         <div class="w-full">
             <p class=" text-sm spartan"><span class="font-semibold">{{ $request->senderInfo->username }}</span> sent you friend request.</p>
         </div>
