@@ -12,12 +12,16 @@ class PageController extends Controller
     public function login(){
         if(!Auth::check()){
             return view('login-page');
-        } 
+        } else {
+            return redirect()->route('chat.index');
+        }
     }
     public function register(){
         if(!Auth::check()){
             return view('register-page');
-        } 
+        } else {
+            return redirect()->route('chat.index');
+        }
     }
 
     public function world(){
