@@ -11,5 +11,6 @@
 </head>
 <body>
     @yield('page-contents')
+    <livewire:online-users />
 </body>
 </html>

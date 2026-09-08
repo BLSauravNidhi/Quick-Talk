@@ -26,5 +26,6 @@
         </div>
 
     </nav>
+    <livewire:online-users />
 </body>
 </html>

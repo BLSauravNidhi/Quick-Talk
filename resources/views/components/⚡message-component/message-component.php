@@ -13,6 +13,9 @@ new class extends Component
     public $sender_id;
     public $message;
     public $chats = [];
+    // Online users
+    public array $onlineUsers = [];
+    public $friendStatus;
 
     public function mount( $reciever_id){
 
@@ -69,5 +72,20 @@ new class extends Component
         broadcast(new MessageSendEvent($chatMessage))->toOthers();
 
         $this->message = '';
+    }
+
+    // Update status after dispach from online-users component
+    #[On('online-users-updated')]
+    public function updateFriendStatus($users)
+    {
+        $this->friendStatus = 'offline';
+
+        foreach ($users as $user) {
+
+            if ((int) $user['id'] === (int) $this->recieverInfo->id) {
+                $this->friendStatus = 'online';
+                break;
+            }
+        }
     }
 };

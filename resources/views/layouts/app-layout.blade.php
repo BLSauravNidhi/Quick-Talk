@@ -12,6 +12,6 @@
 <body>
     @include('components.nav-bar')
     @yield('page-contents')
-    {{-- @include('components.bottom-nav') --}}
+    <livewire:online-users />
 </body>
 </html>
