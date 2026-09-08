@@ -48,6 +48,23 @@ class ChatController extends Controller
      */
     public function show(string $friend_id)
     {
+        $userId = auth()->id();
+
+        $friend = User::where('id', $friend_id)
+            ->where(function ($query) use ($userId) {
+                $query->whereHas('receivedFriends', function ($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                })
+                ->orWhereHas('sentFriends', function ($query) use ($userId) {
+                    $query->where('friend_id', $userId);
+                });
+            })
+            ->first();
+
+        if (!$friend) {
+            abort(404);
+        }
+        
         return view('chat-page', ['reciever_id' => $friend_id]);
     }
 
